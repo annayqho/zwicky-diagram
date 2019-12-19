@@ -230,7 +230,7 @@ def fbots(ax):
     ax.scatter(x, y, marker='D', color=fbotcol, label="38 FBOTs")
     ax.text(x, y*1.01, "AT2018cow", fontsize=namesize, 
             horizontalalignment='left', verticalalignment='bottom', 
-            color='#1b9e77', label="38 FBOTs")
+            color='#1b9e77')
 
     # ZTF18abukavn
     x, y = 10, -19.6
@@ -306,18 +306,22 @@ def gap(ax):
     cadata = ascii.read('../data/carich_gap.txt')
     name = cadata['Object']
     risetime = cadata['Rise']
-    falltime = cadata['Fall']
+    falltime = cadata['Fade']
     peakmag = cadata['PeakMag']
     
     for i in range(len(name)):
-         if risetime[i] == -99 or falltime[i] == -99:
-             continue
-         timescale = risetime[i] + falltime[i]
+        if risetime[i] == -99 or falltime[i] == -99:
+            continue
+        timescale = risetime[i] + falltime[i]
 
-	 if 'ZTF' in name[i]:
-              ax.scatter(timescale, peakmag[i], marker='^', c='k', label='_nolegend_')
-         else:
-              ax.scatter(timescale, peakmag[i], marker='^', c='grey', label='_nolegend_')
+        if('ZTF' in name[i]):
+            ax.scatter(
+                    timescale, peakmag[i], marker='^', 
+                    c='k', label='_nolegend_')
+        else:
+            ax.scatter(
+                    timescale, peakmag[i], marker='^', 
+                    c='lightgrey', label='_nolegend_')
 
 
 

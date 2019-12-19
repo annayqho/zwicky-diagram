@@ -46,7 +46,7 @@ ax.text(50,-22, '43 SLSNe', fontsize=catsize, color='#7570b3',
             #edgecolor='purple'))
 
 fbots(ax)
-ax.text(2,-20,"38 FBOTs",fontsize=catsize,color='#1b9e77')
+ax.text(2,-19.5,"2 radio-loud\nFBOTs",fontsize=catsize,color='#1b9e77')
 
 ilrt(ax)
 ax.text(31, -11, "Intermediate\nLuminosity\nRed Transients",
@@ -57,7 +57,7 @@ ax.text(52, -9, "Luminous\nRed Novae",
         horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
-ax.text(8, -15, "Ca-rich Transients",
+ax.text(8, -15, "7 Ca-rich Transients",
         horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
