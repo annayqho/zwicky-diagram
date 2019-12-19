@@ -84,7 +84,7 @@ ax.set_xlabel("Time Above Half-Max (rest-frame days)", fontsize=16)
 ax.set_xlim(1,400)
 ax.set_xscale('log')
 ax.set_ylim(-4.7, -24)
-ax.set_ylabel("Peak Luminosity ($M_v$)", fontsize=16)
+ax.set_ylabel("Peak Luminosity ($M_V$)", fontsize=16)
 
 # Axis showing luminosity in erg/s
 ax2 = ax.twinx()
