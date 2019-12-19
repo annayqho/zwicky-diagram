@@ -21,8 +21,8 @@ srcsize = 10
 ax.text(1.1, -23, "ZTF Phase I", fontsize=20)
 
 snia(ax)
-#ax.text(16, -20.6, "1611 Ia SNe", 
-#        fontsize=catsize, horizontalalignment='center', rotation=20)
+ax.text(16, -20.6, "1611 Ia SNe", 
+        fontsize=catsize, horizontalalignment='center', rotation=20)
 #, bbox=dict(facecolor='white', edgecolor='grey'))
 
 kilonova(ax)
@@ -30,35 +30,35 @@ novae(ax)
 longsne(ax)
 
 tde(ax)
-#ax.text(
-#        100, -22.5, "17 TDEs",
-#        fontsize=catsize, color='black')
+ax.text(
+        100, -22.5, "17 TDEs",
+        fontsize=catsize, color='black')
 
 core_collapse(ax)
-#ax.text(
-#        20, -17.5, "630 CC SNe",
-#        fontsize=catsize, color='black')#,
+ax.text(
+        40, -16, "630 CC SNe",
+        fontsize=catsize, color='#d95f02')#,
         #bbox=dict(edgecolor='orange', facecolor='white'))
 
 slsne(ax)
-#ax.text(50,-22, '43 SLSNe', fontsize=catsize, color='#7570b3',
-#        horizontalalignment='right')#, bbox=dict(facecolor='white',
-#            #edgecolor='purple'))
+ax.text(50,-22, '43 SLSNe', fontsize=catsize, color='#7570b3',
+        horizontalalignment='right')#, bbox=dict(facecolor='white',
+            #edgecolor='purple'))
 
 fbots(ax)
-#ax.text(2,-20,"38 FBOTs",fontsize=catsize,color='#1b9e77')
+ax.text(2,-20,"38 FBOTs",fontsize=catsize,color='#1b9e77')
 
 ilrt(ax)
-#ax.text(31, -11, "Intermediate\nLuminosity\nRed Transients",
-#        horizontalalignment='right', fontsize=catsize,color='red')
+ax.text(31, -11, "Intermediate\nLuminosity\nRed Transients",
+        horizontalalignment='right', fontsize=catsize,color='#d95f02')
 
 lrne(ax)
-#ax.text(52, -8, "Luminous\nRed Novae",
-#        horizontalalignment='right', fontsize=catsize,color='red')
+ax.text(52, -9, "Luminous\nRed Novae",
+        horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
-#ax.text(8, -15, "Ca-rich Gap",
-#        horizontalalignment='center', fontsize=catsize,color='black')
+ax.text(8, -15, "Ca-rich Transients",
+        horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
 
@@ -118,7 +118,7 @@ ax.tick_params(axis='both', labelsize=14)
 # gep(axins)
 
 # Display
-ax.legend(loc='lower left', fontsize=catsize)
+#ax.legend(loc='lower left', fontsize=10, frameon=False)
 plt.tight_layout()
 #plt.show()
 plt.savefig("tau_mv.png", dpi=500)

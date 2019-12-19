@@ -207,12 +207,12 @@ def core_collapse(ax):
             absmag = peakmag-Planck15.distmod(z=z[ii]).value
             if leg:
                 ax.scatter(
-                        thalf, absmag, c='lightgrey', marker='s', zorder=0, 
+                        thalf, absmag, c='#d95f02', marker='s', zorder=0, 
                         label="630 CC SNe")
                 leg = False
             else:
                 ax.scatter(
-                        thalf, absmag, c='lightgrey', marker='s', zorder=0, 
+                        thalf, absmag, c='#d95f02', marker='s', zorder=0, 
                         label="_nolegend_")
             leg = False
 
@@ -407,29 +407,29 @@ def slsne(ax):
             if leg:
                 ax.scatter(
                     timescale, maxmag[ii]-Planck15.distmod(float(z[ii])).value,
-                    marker='v', color='#7570b3', label="43 SLSNe")
+                    marker='*', color='#7570b3', label="43 SLSNe")
                 leg = False
             else:
                 ax.scatter(
                     timescale, maxmag[ii]-Planck15.distmod(float(z[ii])).value,
-                    marker='v', color='#7570b3', label="_nolegend_")
+                    marker='*', color='#7570b3', label="_nolegend_")
 
     # Background
     x = [32+61,  29+45,  21+54,  29+25,  33+25,  13+27,  15+24,  29+49,  28+36,  21+19]
     y = [-21.78, -22.09, -22.03, -20.31, -21.94, -21.39, -20.88, -21.61, -19.90, -22.42]
-    ax.scatter(x, y, marker='v', color='lightgrey', label="_nolegend_", zorder=0)
+    ax.scatter(x, y, marker='*', color='lightgrey', label="_nolegend_", zorder=0)
     
 
 def longsne(ax):
     # iPTF14hls
-    ax.scatter(300, -18.7, marker='s', c='k')
+    ax.scatter(300, -18.7, marker='s', c='lightgrey')
     ax.text(290, -18.5, "iPTF14hls", fontsize=10,
             horizontalalignment='center', verticalalignment='top')
 
     # ZTF object
-    ax.scatter(25, -16, marker='s', c='k')
-    ax.text(25, -15.8, "ZTF18acgvgiq", fontsize=10,
-            horizontalalignment='center', verticalalignment='top')
+    #ax.scatter(25, -16, marker='s', c='#d95f02')
+    #ax.text(25, -15.8, "ZTF18acgvgiq", fontsize=10,
+    #        horizontalalignment='center', verticalalignment='top')
 
 
 def novae(ax):
@@ -453,9 +453,10 @@ def novae(ax):
         if bad==False: 
             timescale = float(rise[ii]) + float(fade[ii])
             lum = maxmag[ii]-Planck15.distmod(z=0.000177).value
-            ax.scatter(
-                timescale, lum, marker='*', c='k', label=leg)
-            leg = '_nolegend_'
+            if timescale>3:
+                ax.scatter(
+                    timescale, lum, marker='*', c='k', label=leg)
+                leg = '_nolegend_'
 
 
 def ilrt(ax):
