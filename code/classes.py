@@ -327,12 +327,12 @@ def gap(ax):
 def fast_sublum(ax):
     # SN2019dge
     ax.scatter(
-            2, -16.3, marker='o', facecolor='white', edgecolor='k')
+            10.5, -16.3, marker='o', facecolor='white', edgecolor='k')
     ax.text(
-            2, -16.2, 'SN2019dge', verticalalignment='top', 
+            10.5, -16.2, 'SN2019dge', verticalalignment='top', 
             horizontalalignment='right', fontsize=namesize)
     ax.text(
-            2.7, -15.8, '(ultra-stripped)', verticalalignment='top', 
+            10.7, -15.8, '(ultra-stripped)', verticalalignment='top', 
             horizontalalignment='right', fontsize=namesize)
     # ZTF18abkmbpy
     #ax.scatter(

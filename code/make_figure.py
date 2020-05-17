@@ -33,7 +33,7 @@ fast_sublum(ax)
 
 tde(ax)
 ax.text(
-        100, -22.5, "17 TDEs",
+        100, -22.5, "22 TDEs",
         fontsize=catsize, color='black')
 
 core_collapse(ax)
@@ -59,7 +59,7 @@ ax.text(52, -9, "Luminous\nRed Novae",
         horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
-ax.text(8, -15, "8 Ca-rich Transients",
+ax.text(25, -15, "8 Ca-rich Transients",
         horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
