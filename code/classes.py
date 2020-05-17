@@ -141,7 +141,7 @@ def snia(ax, band = 'p48g', timescale='efoldDecline',
     
     # plot individual data points
     #ax.errorbar(x, y, y_err, fmt='.k', ms=0.1) #, lw=0.1)
-    ax.scatter(x, y, marker='.', s=1, c='k', zorder=3, label="1611 Ia SNe")
+    ax.scatter(x, y, marker='.', s=1, c='k', zorder=3, label="2035 Ia SNe")
     
     # plot the grey contour
     slope, e_slope, intercept = mylinear_fit(x, y, y_err, npar=2)
@@ -208,7 +208,7 @@ def core_collapse(ax):
             if leg:
                 ax.scatter(
                         thalf, absmag, c='#d95f02', marker='s', zorder=0, 
-                        label="630 CC SNe")
+                        label="871 CC SNe")
                 leg = False
             else:
                 ax.scatter(
@@ -323,6 +323,23 @@ def gap(ax):
                     timescale, peakmag[i], marker='^', 
                     c='lightgrey', label='_nolegend_')
 
+
+def fast_sublum(ax):
+    # SN2019dge
+    ax.scatter(
+            2, -16.3, marker='o', facecolor='white', edgecolor='k')
+    ax.text(
+            2, -16.2, 'SN2019dge', verticalalignment='top', 
+            horizontalalignment='right', fontsize=namesize)
+    ax.text(
+            2.7, -15.8, '(ultra-stripped)', verticalalignment='top', 
+            horizontalalignment='right', fontsize=namesize)
+    # ZTF18abkmbpy
+    #ax.scatter(
+    #        2.1, -16.8, marker='o', facecolor='white', edgecolor='k')
+    #ax.text(
+    #        2.1, -16.8, 'SN2019dge', verticalalignment='bottom', 
+    #        horizontalalignment='right', fontsize=namesize)
 
 
 def tde(ax):

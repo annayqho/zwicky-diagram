@@ -11,7 +11,7 @@ from astropy.table import Table
 from classes import *
 import sys
 sys.path.append("/Users/annaho/Dropbox/Projects/Research/Koala/code")
-from m_trise import *
+from classes import *
 
 fig, ax = plt.subplots(1,1, figsize=(8,6))
 
@@ -21,13 +21,15 @@ srcsize = 10
 ax.text(1.1, -23, "ZTF Phase I", fontsize=20)
 
 snia(ax)
-ax.text(16, -20.6, "1611 Ia SNe", 
+ax.text(16, -20.6, "2035 Ia SNe", 
         fontsize=catsize, horizontalalignment='center', rotation=20)
 #, bbox=dict(facecolor='white', edgecolor='grey'))
 
 kilonova(ax)
 novae(ax)
 longsne(ax)
+
+fast_sublum(ax)
 
 tde(ax)
 ax.text(
@@ -36,12 +38,12 @@ ax.text(
 
 core_collapse(ax)
 ax.text(
-        40, -16, "630 CC SNe",
+        40, -16, "871 CC SNe",
         fontsize=catsize, color='#d95f02')#,
         #bbox=dict(edgecolor='orange', facecolor='white'))
 
 slsne(ax)
-ax.text(50,-22, '43 SLSNe', fontsize=catsize, color='#7570b3',
+ax.text(50,-22, '58 SLSNe', fontsize=catsize, color='#7570b3',
         horizontalalignment='right')#, bbox=dict(facecolor='white',
             #edgecolor='purple'))
 
@@ -57,7 +59,7 @@ ax.text(52, -9, "Luminous\nRed Novae",
         horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
-ax.text(8, -15, "7 Ca-rich Transients",
+ax.text(8, -15, "8 Ca-rich Transients",
         horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
@@ -121,4 +123,4 @@ ax.tick_params(axis='both', labelsize=14)
 #ax.legend(loc='lower left', fontsize=10, frameon=False)
 plt.tight_layout()
 #plt.show()
-plt.savefig("tau_mv.png", dpi=500)
+plt.savefig("tau_mv.eps", dpi=500)
