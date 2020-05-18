@@ -26,7 +26,7 @@ def snia(ax, band = 'p48g', timescale='efoldDecline',
     """
     Please contact me if you have any questions: yyao@astro.caltech.edu
     
-    Sample from SNe Ia young sample observed in the ZTF extragalactic high-cadence
+    Sample from SNe Ia sample observed in the ZTF extragalactic high-cadence
     partnership experiment. We use 121 ``normal'' SNe Ia from 2018 (including 
     normal, 91T-like, and 91bg-like SNe).
     Light curves presented in Yao et al. (2019)
@@ -141,7 +141,8 @@ def snia(ax, band = 'p48g', timescale='efoldDecline',
     
     # plot individual data points
     #ax.errorbar(x, y, y_err, fmt='.k', ms=0.1) #, lw=0.1)
-    ax.scatter(x, y, marker='.', s=1, c='k', zorder=3, label="2035 Ia SNe")
+    ax.scatter(x, y, marker='o', s=3, zorder=3, label="2035 Ia SNe",
+            c='Goldenrod')
     
     # plot the grey contour
     slope, e_slope, intercept = mylinear_fit(x, y, y_err, npar=2)
@@ -175,9 +176,9 @@ def fix_df(df):
 
 
 def core_collapse(ax):
-    """ Light curves of 230 CC SNe from RCF provided by Yashvi Sharma """
+    """ Light curves of CC SNe from RCF provided by Yashvi Sharma """
     # Load the table of events
-    df = pd.read_csv("../data/ccsne/ccsne_final.csv")
+    df = pd.read_csv("../data/ccsne/ccsne_final_new.csv")
     keep = df['redshift'] != 'None'
 
     nearby = df['redshift'][keep].astype(float)<0.05
@@ -187,7 +188,7 @@ def core_collapse(ax):
 
     # Load the array of light curves
     lcs = np.load(
-            "../data/ccsne/ccsne_lcs.npy", 
+            "../data/ccsne/ccsne_lcs_new.npy", 
             allow_pickle=True, encoding='latin1')
     lcs = lcs[keep][choose]
 
@@ -207,70 +208,70 @@ def core_collapse(ax):
             absmag = peakmag-Planck15.distmod(z=z[ii]).value
             if leg:
                 ax.scatter(
-                        thalf, absmag, c='#d95f02', marker='s', zorder=0, 
-                        label="871 CC SNe")
+                        thalf, absmag, c='cornflowerblue', marker='s', 
+                        zorder=0,  s=12, label="871 CC SNe")
                 leg = False
             else:
                 ax.scatter(
-                        thalf, absmag, c='#d95f02', marker='s', zorder=0, 
-                        label="_nolegend_")
+                        thalf, absmag, c='cornflowerblue', marker='s', 
+                        zorder=0, s=12, label="_nolegend_")
             leg = False
 
 
 def fbots(ax):
-    fbotcol = '#1b9e77'
+    fbotcol = 'Crimson'
     # Koala
     x, y = 6/1.2714, -21.2
-    ax.scatter(x, y, marker='D', c=fbotcol, label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c=fbotcol, label="_nolegend_")
     #ax.text(x, y*1.01, "ZTF18abvkwla", fontsize=namesize, color='#1b9e77',
     #        horizontalalignment='center', verticalalignment='bottom')
 
     # AT2018cow
     x, y = 6, -20.5
-    ax.scatter(x, y, marker='D', color=fbotcol, label="38 FBOTs")
+    ax.scatter(x, y, marker='D', s=12, color=fbotcol, label="38 FBOTs")
     ax.text(x, y*1.01, "AT2018cow", fontsize=namesize, 
             horizontalalignment='left', verticalalignment='bottom', 
-            color='#1b9e77')
+            color='Crimson')
 
     # ZTF18abukavn
     x, y = 10, -19.6
-    ax.scatter(x, y, marker='D', c=fbotcol, label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c=fbotcol, label="_nolegend_")
     #ax.text(x, y/1.01, "ZTF18abukavn", fontsize=11, 
     #        horizontalalignment='right', verticalalignment='top')
 
     # ZTF18acrheel
     x, y = 10, -19.6
-    ax.scatter(x/1.059, y, marker='D', c='#1b9e77', label="_nolegend_")
+    ax.scatter(x/1.059, y, marker='D', s=12, c=fbotcol, label="_nolegend_")
     #ax.text(x, y/1.01, "ZTF18acrheel", fontsize=11, 
     #        horizontalalignment='right', verticalalignment='top')
 
     # ZTF18abqbuaj
     x, y = 10, -18.9
-    ax.scatter(x/1.054, y, marker='D', c='#1b9e77', label="_nolegend_")
+    ax.scatter(x/1.054, y, marker='D', s=12, c=fbotcol, label="_nolegend_")
     #ax.text(x, y/1.01, "ZTF18abqbuaj", fontsize=11, 
     #        horizontalalignment='right', verticalalignment='top')
 
     # ZTF19aakssbm
     x, y = 8, -18.6
-    ax.scatter(x/1.036, y, marker='D', c='#1b9e77', label="_nolegend_")
+    ax.scatter(x/1.036, y, marker='D', s=12, c=fbotcol, label="_nolegend_")
     #ax.text(x, y/1.01, "ZTF18abqbuaj", fontsize=11, 
     #        horizontalalignment='right', verticalalignment='top')
 
     # PS1-10bjp
     x, y = (1+7.7)/1.113, -18.2
-    ax.scatter(x, y, marker='D', c='lightgrey', label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c='lightgrey', label="_nolegend_")
 
     # PS1-11qr
     x, y = (3+8.7)/1.324, -19.3
-    ax.scatter(x, y, marker='D', c='lightgrey', label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c='lightgrey', label="_nolegend_")
 
     # PS1-11qr
     x, y = (2+5)/1.405, -19.1
-    ax.scatter(x, y, marker='D', c='lightgrey', label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c='lightgrey', label="_nolegend_")
 
     # PS1-12brf
     x, y = (9)/1.275, -18.3
-    ax.scatter(x, y, marker='D', c='lightgrey', label="_nolegend_")
+    ax.scatter(x, y, marker='D', s=12, c='lightgrey', label="_nolegend_")
 
 
 def kilonova(ax):
@@ -317,7 +318,7 @@ def gap(ax):
         if('ZTF' in name[i]):
             ax.scatter(
                     timescale, peakmag[i], marker='^', 
-                    c='k', label='_nolegend_')
+                    c='k', label='_nolegend_', zorder=5)
         else:
             ax.scatter(
                     timescale, peakmag[i], marker='^', 
@@ -349,11 +350,11 @@ def tde(ax):
     ax.scatter(
             10**(dat[:,3][choose].astype(float)), 
             dat[:,2][choose].astype(float), 
-            c='lightgrey', marker='o')
+            c='lightgrey', marker='X', s=20)
     ax.scatter(
             10**(dat[:,3][~choose].astype(float)), 
             dat[:,2][~choose].astype(float), 
-            c='k', marker='o', label='17 TDEs')
+            c='k', marker='X', s=20, label='17 TDEs')
 
 
 def relativistic(ax):
@@ -510,6 +511,11 @@ def ilrt(ax):
 def lrne(ax):
     """ Data points from prev version of diagram """
     dat = np.loadtxt("../data/lrn.txt", delimiter=',')
-    ax.scatter(dat[:,0], dat[:,1], marker='+', c='grey', label="_nolegend_")
+    ax.scatter(
+            dat[:,0], dat[:,1], marker='x', s=15, c='grey', label="_nolegend_")
+    ax.text(2, -10.8, 'P60-M82OT-081119', fontsize=10, color='grey')
+    ax.text(75, -9.8, 'M85-OT', fontsize=10, color='grey')
+    ax.text(66, -9.2, 'V838 Mon', fontsize=10, color='grey')
+    ax.text(75, -8.3, 'M31 RV', fontsize=10, color='grey')
 
 

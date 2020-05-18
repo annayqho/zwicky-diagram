@@ -21,7 +21,7 @@ srcsize = 10
 ax.text(1.1, -23, "ZTF Phase I", fontsize=20)
 
 snia(ax)
-ax.text(16, -20.6, "2035 Ia SNe", 
+ax.text(16, -20.8, "2035 Ia SNe", color='Goldenrod',
         fontsize=catsize, horizontalalignment='center', rotation=20)
 #, bbox=dict(facecolor='white', edgecolor='grey'))
 
@@ -39,7 +39,7 @@ ax.text(
 core_collapse(ax)
 ax.text(
         40, -16, "871 CC SNe",
-        fontsize=catsize, color='#d95f02')#,
+        fontsize=catsize, color='cornflowerblue')#,
         #bbox=dict(edgecolor='orange', facecolor='white'))
 
 slsne(ax)
@@ -48,24 +48,27 @@ ax.text(50,-22, '58 SLSNe', fontsize=catsize, color='#7570b3',
             #edgecolor='purple'))
 
 fbots(ax)
-ax.text(2,-19.5,"2 radio-loud\nFBOTs",fontsize=catsize,color='#1b9e77')
+ax.text(2,-19.5,"2 radio-loud\nFBOTs",fontsize=catsize,color='Crimson')
 
 ilrt(ax)
 ax.text(31, -11, "Intermediate\nLuminosity\nRed Transients",
         horizontalalignment='right', fontsize=catsize,color='#d95f02')
+
+ax.plot([10, 100],[-10.5, -10.5],c='grey', lw=0.5, ls=':')
 
 lrne(ax)
 ax.text(52, -9, "Luminous\nRed Novae",
         horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
-ax.text(25, -15, "8 Ca-rich Transients",
+ax.text(29, -15, "8 Ca-rich Transients",
         horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
 
-ax.text(15, -7, "Classical Novae",
-        horizontalalignment='left', fontsize=catsize,color='black')
+#ax.text(400, -7.5, "Classical Novae",
+#        horizontalalignment='right', verticalalignment='top', 
+#        fontsize=catsize, color='black')
 
 # for st in search_terms:
 #     dat = np.loadtxt("%s.txt" %st, dtype=str)
@@ -83,7 +86,7 @@ ax.text(15, -7, "Classical Novae",
 #         ax.scatter(dur, M, label=st)
     
 ax.set_xlabel("Time Above Half-Max (rest-frame days)", fontsize=16)
-ax.set_xlim(1,400)
+ax.set_xlim(1,500)
 ax.set_xscale('log')
 ax.set_ylim(-4.7, -24)
 ax.set_ylabel("Peak Luminosity ($M_V$)", fontsize=16)
