@@ -38,7 +38,7 @@ ax.text(
 
 core_collapse(ax)
 ax.text(
-        40, -16, "871 CC SNe",
+        40, -16, "1078 CC SNe",
         fontsize=catsize, color='cornflowerblue')#,
         #bbox=dict(edgecolor='orange', facecolor='white'))
 
@@ -51,13 +51,13 @@ fbots(ax)
 ax.text(2,-19.5,"2 radio-loud\nFBOTs",fontsize=catsize,color='Crimson')
 
 ilrt(ax)
-ax.text(31, -11, "Intermediate\nLuminosity\nRed Transients",
+ax.text(31, -11, "3 Intermediate\nLuminosity\nRed Transients",
         horizontalalignment='right', fontsize=catsize,color='#d95f02')
 
 ax.plot([10, 100],[-10.5, -10.5],c='grey', lw=0.5, ls=':')
 
 lrne(ax)
-ax.text(52, -9, "Luminous\nRed Novae",
+ax.text(52, -9, "2 Luminous\nRed Novae",
         horizontalalignment='right', fontsize=catsize,color='grey')
 
 gap(ax)
