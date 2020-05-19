@@ -54,7 +54,7 @@ fbots(ax)
 ax.text(4,-19.5,"5 FBOTs",fontsize=catsize,color='Crimson')
 
 ilrt(ax)
-ax.text(140, -11, "3 Intermediate\nLuminosity\nRed Transients",
+ax.text(90, -12, "3 Intermediate\nLuminosity\nRed Transients",
         horizontalalignment='left', fontsize=catsize,color='blue')
 
 #ax.plot([10, 100],[-10.5, -10.5],c='grey', lw=0.5, ls=':')
@@ -128,5 +128,5 @@ ax.tick_params(axis='both', labelsize=14)
 # Display
 #ax.legend(loc='lower left', fontsize=10, frameon=False)
 plt.tight_layout()
-plt.show()
-#plt.savefig("tau_mv.eps", dpi=500)
+#plt.show()
+plt.savefig("tau_mv.eps", dpi=500)
