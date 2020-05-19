@@ -30,6 +30,9 @@ novae(ax)
 longsne(ax)
 
 fast_sublum(ax)
+lbv(ax)
+ax.text(110, -15, "5 LBVs", color='mediumseagreen',
+        fontsize=catsize, horizontalalignment='center')
 
 tde(ax)
 ax.text(
@@ -48,20 +51,20 @@ ax.text(50,-22, '58 SLSNe', fontsize=catsize, color='#7570b3',
             #edgecolor='purple'))
 
 fbots(ax)
-ax.text(2,-19.5,"2 radio-loud\nFBOTs",fontsize=catsize,color='Crimson')
+ax.text(4,-19.5,"5 FBOTs",fontsize=catsize,color='Crimson')
 
 ilrt(ax)
-ax.text(31, -11, "3 Intermediate\nLuminosity\nRed Transients",
-        horizontalalignment='right', fontsize=catsize,color='#d95f02')
+ax.text(140, -11, "3 Intermediate\nLuminosity\nRed Transients",
+        horizontalalignment='left', fontsize=catsize,color='blue')
 
-ax.plot([10, 100],[-10.5, -10.5],c='grey', lw=0.5, ls=':')
+#ax.plot([10, 100],[-10.5, -10.5],c='grey', lw=0.5, ls=':')
 
 lrne(ax)
-ax.text(52, -9, "2 Luminous\nRed Novae",
-        horizontalalignment='right', fontsize=catsize,color='grey')
+ax.text(26, -12.5, "2 Luminous\nRed Novae",
+        horizontalalignment='right', fontsize=catsize, color='#d95f02')
 
 gap(ax)
-ax.text(29, -15, "8 Ca-rich Transients",
+ax.text(29, -15.1, "8 Ca-rich Transients",
         horizontalalignment='center', fontsize=catsize,color='black')
 #ax.text(4, -17, ".Ia Explosions",
 #        horizontalalignment='right', fontsize=catsize,color='black')
@@ -125,5 +128,5 @@ ax.tick_params(axis='both', labelsize=14)
 # Display
 #ax.legend(loc='lower left', fontsize=10, frameon=False)
 plt.tight_layout()
-#plt.show()
-plt.savefig("tau_mv.eps", dpi=500)
+plt.show()
+#plt.savefig("tau_mv.eps", dpi=500)

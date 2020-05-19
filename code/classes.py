@@ -228,10 +228,10 @@ def fbots(ax):
 
     # AT2018cow
     x, y = 6, -20.5
-    ax.scatter(x, y, marker='D', s=12, color=fbotcol, label="38 FBOTs")
+    ax.scatter(x, y, marker='D', s=12, color='grey', label="38 FBOTs")
     ax.text(x, y*1.01, "AT2018cow", fontsize=namesize, 
             horizontalalignment='left', verticalalignment='bottom', 
-            color='Crimson')
+            color='grey')
 
     # ZTF18abukavn
     x, y = 10, -19.6
@@ -330,10 +330,10 @@ def fast_sublum(ax):
     ax.scatter(
             10.5, -16.3, marker='o', facecolor='white', edgecolor='k')
     ax.text(
-            10.5, -16.2, 'SN2019dge', verticalalignment='top', 
+            10.5, -15.7, 'SN2019dge', verticalalignment='top', 
             horizontalalignment='right', fontsize=namesize)
     ax.text(
-            10.7, -15.8, '(ultra-stripped)', verticalalignment='top', 
+            10.7, -15.3, '(ultra-stripped)', verticalalignment='top', 
             horizontalalignment='right', fontsize=namesize)
     # ZTF18abkmbpy
     #ax.scatter(
@@ -341,6 +341,27 @@ def fast_sublum(ax):
     #ax.text(
     #        2.1, -16.8, 'SN2019dge', verticalalignment='bottom', 
     #        horizontalalignment='right', fontsize=namesize)
+
+def lbv(ax):
+    data = ascii.read('../data/lbv.txt')
+    name = data['Object']
+    risetime = data['Rise']
+    falltime = data['Fade']
+    peakmag = data['PeakMag']
+    
+    for i in range(len(name)):
+        if risetime[i] == -99 or falltime[i] == -99:
+            continue
+        timescale = risetime[i] + falltime[i]
+
+        if('ZTF' in name[i]):
+            ax.scatter(
+                    timescale, peakmag[i], marker='>', 
+                    c='mediumseagreen', label='_nolegend_', zorder=0)
+        else:
+            ax.scatter(
+                    timescale, peakmag[i], marker='>', 
+                    c='grey', label='_nolegend_')
 
 
 def tde(ax):
@@ -462,8 +483,8 @@ def slsne(ax):
 
 def longsne(ax):
     # iPTF14hls
-    ax.scatter(300, -18.7, marker='s', c='lightgrey')
-    ax.text(290, -18.5, "iPTF14hls", fontsize=10,
+    ax.scatter(300, -18.7, marker='s', c='lightgrey', s=10)
+    ax.text(290, -18.5, "iPTF14hls", fontsize=10, color='grey',
             horizontalalignment='center', verticalalignment='top')
 
     # ZTF object
@@ -501,18 +522,53 @@ def novae(ax):
 
 def ilrt(ax):
     """ Data points from prev version of diagram """
-    dat = np.loadtxt("../data/ilrt.txt", delimiter=',')
-    ax.scatter(dat[:,0], dat[:,1], marker='+', c='grey', label="_nolegend")
-    ax.scatter(45, -12, marker='+', c='#d95f02', label="ILRT/LRN")
-    ax.text(45*1.05, -12, 'M51 OT2019-1', fontsize=10, color='#d95f02',
-            verticalalignment='center', horizontalalignment='left')
+    data = ascii.read('../data/ilrt.txt')
+    name = data['Object']
+    risetime = data['Rise']
+    falltime = data['Fade']
+    peakmag = data['PeakMag']
+    
+    for i in range(len(name)):
+        if risetime[i] == -99 or falltime[i] == -99:
+            continue
+        timescale = risetime[i] + falltime[i]
+
+        if('ZTF' in name[i]):
+            ax.scatter(
+                    timescale, peakmag[i], marker='+', 
+                    c='blue', label='_nolegend_', zorder=0)
+        else:
+            ax.scatter(
+                    timescale, peakmag[i], marker='+', 
+                    c='grey', label='_nolegend_')
+    ax.scatter(45, -12, marker='+', c='blue', label="ILRT/LRN")
+    ax.text(45/1.05, -12, 'M51 OT2019-1', fontsize=10, color='blue',
+            verticalalignment='center', horizontalalignment='right')
 
 
 def lrne(ax):
     """ Data points from prev version of diagram """
-    dat = np.loadtxt("../data/lrn.txt", delimiter=',')
-    ax.scatter(
-            dat[:,0], dat[:,1], marker='x', s=15, c='grey', label="_nolegend_")
+    data = ascii.read('../data/lrn.txt')
+    name = data['Object']
+    risetime = data['Rise']
+    falltime = data['Fade']
+    peakmag = data['PeakMag']
+    
+    for i in range(len(name)):
+        if risetime[i] == -99 or falltime[i] == -99:
+            continue
+        timescale = risetime[i] + falltime[i]
+
+        if('ZTF' in name[i]):
+            print(timescale, peakmag[i])
+            ax.scatter(
+                    timescale, peakmag[i], marker='x', 
+                    c='#d95f02', label='_nolegend_', zorder=0)
+        else:
+            ax.scatter(
+                    timescale, peakmag[i], marker='x', 
+                    c='grey', label='_nolegend_')
+
     ax.text(2, -10.8, 'P60-M82OT-081119', fontsize=10, color='grey')
     ax.text(75, -9.8, 'M85-OT', fontsize=10, color='grey')
     ax.text(66, -9.2, 'V838 Mon', fontsize=10, color='grey')
